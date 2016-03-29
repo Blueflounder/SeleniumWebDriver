@@ -1,0 +1,51 @@
+package com.ReadFromExcel.test;
+
+import java.io.File;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ReadFromExcel {
+	
+	XSSFWorkbook workbook;
+	XSSFSheet sheet;
+    XSSFRow row;
+    XSSFCell cell;
+    File file;
+
+    int rowCount;
+    int cellCount;
+	
+	public static void main(String args[]){
+		
+
+        
+
+        file = new File("your excel file with XLSX format");
+        workbook = new XSSFWorkbook(file);
+        sheet = workbook.getSheet("Designations");
+
+        rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
+
+        System.out.println("Row Count " + rowCount);
+
+        for (int i = 0; i < rowCount; i++) {
+
+            
+            row = sheet.getRow(i);
+            cellCount = row.getLastCellNum() - row.getFirstCellNum();
+            
+
+            for (int j = 0; j < cellCount; j++) {
+
+                 cell = row.getCell(j);
+
+                 System.out.println("Cell Value " + cell.getStringCellValue());
+
+            }
+
+        }
+	}
+}

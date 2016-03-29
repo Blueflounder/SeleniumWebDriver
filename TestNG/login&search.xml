@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <listeners>
+  	<listener class-name="com.mcall.TestCases.VerifyMCallLoginAndSearch"/>
+  	<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+  </listeners>
+  <parameter name="searchTerm"  value="Brad Pitt"/>
+  <test name="NavigationTest">
+  	<groups>
+  		<run>
+  			<exclude name="login"/>
+  			<include name="search"/>
+  		</run>
+  	</groups>
+    <classes>
+      <class name="com.mcall.TestCases.VerifyMCallLoginAndSearch"/>
+      <class name="com.mcall.pages.Search"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

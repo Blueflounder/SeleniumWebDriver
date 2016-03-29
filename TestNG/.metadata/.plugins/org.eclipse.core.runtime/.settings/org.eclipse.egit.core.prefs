@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+GitRepositoriesView.GitDirectories=C\:\\Users\\chaitanyak\\workspace\\TestNG\\.git;
+=======
+GitRepositoriesView.GitDirectories=C\:\\Users\\chaitanyak\\git\\SeleniumWebDriver\\.git;C\:\\Users\\chaitanyak\\workspace\\TestNG\\.git;C\:\\Users\\chaitanyak\\workspace\\.git;
+>>>>>>> branch 'master' of https://github.com/Blueflounder/SeleniumPractice.git
+RepositorySearchDialogDeepSearch=true
+RepositorySearchDialogSearchPath=C\:\\Users\\chaitanyak\\workspace\\TestNG
+eclipse.preferences.version=1
