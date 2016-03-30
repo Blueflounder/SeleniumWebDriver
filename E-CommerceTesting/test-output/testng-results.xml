@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="34007" started-at="2016-03-30T11:43:50Z" finished-at="2016-03-30T11:44:24Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="34007" started-at="2016-03-30T11:43:50Z" finished-at="2016-03-30T11:44:24Z">
+      <class name="com.ecommerce.callingFunctions.CallingFunctions">
+        <test-method status="PASS" signature="OpenSite()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="OpenSite" is-config="true" duration-ms="20676" started-at="2016-03-30T17:13:50Z" finished-at="2016-03-30T17:14:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OpenSite -->
+        <test-method status="PASS" signature="Test()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="Test" duration-ms="9261" started-at="2016-03-30T17:14:11Z" finished-at="2016-03-30T17:14:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test -->
+        <test-method status="PASS" signature="tear()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="tear" is-config="true" duration-ms="4031" started-at="2016-03-30T17:14:20Z" finished-at="2016-03-30T17:14:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tear -->
+      </class> <!-- com.ecommerce.callingFunctions.CallingFunctions -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

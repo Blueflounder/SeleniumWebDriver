@@ -1,0 +1,26 @@
+package com.ecommerce.pageObjects;
+
+import java.util.*;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class PageObjects {
+	
+	WebDriver driver;
+	
+	public PageObjects(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	public void addToCart(){
+		
+		WebElement goToCheckoutButton, continueShoppingButton;
+		List<WebElement> addToCartButton = driver.findElements(By.className("wpsc_buy_button"));
+		
+		
+		
+	}
+
+}
