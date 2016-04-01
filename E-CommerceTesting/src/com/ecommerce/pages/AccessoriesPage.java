@@ -2,12 +2,16 @@ package com.ecommerce.pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class AccessoriesPage {
-	
-	WebDriver driver;
-	
-	public AccessoriesPage(WebDriver driver) {
-		this.driver = driver;
-	}
+import com.ecommerce.pageObjects.PageObjects;
 
+public class AccessoriesPage extends PageObjects {
+
+	WebDriver driver;
+
+	public AccessoriesPage(WebDriver driver) throws InterruptedException {
+		super(driver);
+//		this.addSingleItemToCart(0);
+		//this.addMultipleItemsToCart();
+	}
+	
 }

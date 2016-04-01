@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="62994" started-at="2016-03-31T12:58:31Z" finished-at="2016-03-31T12:59:34Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="62994" started-at="2016-03-31T12:58:31Z" finished-at="2016-03-31T12:59:34Z">
+      <class name="com.test.maven.Maven.App">
+        <test-method status="PASS" signature="set()[pri:0, instance:com.test.maven.Maven.App@3111fe80]" name="set" is-config="true" duration-ms="18395" started-at="2016-03-31T18:28:31Z" finished-at="2016-03-31T18:28:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- set -->
+        <test-method status="PASS" signature="test()[pri:0, instance:com.test.maven.Maven.App@3111fe80]" name="test" duration-ms="43849" started-at="2016-03-31T18:28:49Z" finished-at="2016-03-31T18:29:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method status="PASS" signature="tear()[pri:0, instance:com.test.maven.Maven.App@3111fe80]" name="tear" is-config="true" duration-ms="729" started-at="2016-03-31T18:29:33Z" finished-at="2016-03-31T18:29:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tear -->
+      </class> <!-- com.test.maven.Maven.App -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

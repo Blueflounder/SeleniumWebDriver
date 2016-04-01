@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="34007" started-at="2016-03-30T11:43:50Z" finished-at="2016-03-30T11:44:24Z">
+  <suite name="Default suite" duration-ms="84341" started-at="2016-04-01T12:09:41Z" finished-at="2016-04-01T12:11:06Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="34007" started-at="2016-03-30T11:43:50Z" finished-at="2016-03-30T11:44:24Z">
+    <test name="Default test" duration-ms="84341" started-at="2016-04-01T12:09:41Z" finished-at="2016-04-01T12:11:06Z">
       <class name="com.ecommerce.callingFunctions.CallingFunctions">
-        <test-method status="PASS" signature="OpenSite()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="OpenSite" is-config="true" duration-ms="20676" started-at="2016-03-30T17:13:50Z" finished-at="2016-03-30T17:14:11Z">
+        <test-method status="PASS" signature="OpenSite()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="OpenSite" is-config="true" duration-ms="22454" started-at="2016-04-01T17:39:41Z" finished-at="2016-04-01T17:40:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OpenSite -->
-        <test-method status="PASS" signature="Test()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="Test" duration-ms="9261" started-at="2016-03-30T17:14:11Z" finished-at="2016-03-30T17:14:20Z">
+        <test-method status="PASS" signature="verifyThatAllItemsAreAddedToCart()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="verifyThatAllItemsAreAddedToCart" duration-ms="57690" started-at="2016-04-01T17:40:04Z" finished-at="2016-04-01T17:41:02Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test -->
-        <test-method status="PASS" signature="tear()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="tear" is-config="true" duration-ms="4031" started-at="2016-03-30T17:14:20Z" finished-at="2016-03-30T17:14:24Z">
+        </test-method> <!-- verifyThatAllItemsAreAddedToCart -->
+        <test-method status="PASS" signature="tear()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="tear" is-config="true" duration-ms="4166" started-at="2016-04-01T17:41:02Z" finished-at="2016-04-01T17:41:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tear -->

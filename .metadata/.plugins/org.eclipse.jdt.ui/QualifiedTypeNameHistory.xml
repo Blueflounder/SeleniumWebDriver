@@ -42,7 +42,12 @@
 <fullyQualifiedTypeName name="org.openqa.selenium.firefox.FirefoxDriver"/>
 <fullyQualifiedTypeName name="org.testng.annotations.Test"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.interactions.Actions"/>
-<fullyQualifiedTypeName name="com.ecommerce.pageObjects.PageObjects"/>
 <fullyQualifiedTypeName name="org.testng.Assert"/>
+<fullyQualifiedTypeName name="com.ecommerce.pages.CheckoutPage"/>
+<fullyQualifiedTypeName name="com.ecommerce.pages.AccessoriesPage"/>
+<fullyQualifiedTypeName name="com.ecommerce.pages.HomePage"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.StaleElementReferenceException"/>
+<fullyQualifiedTypeName name="com.ecommerce.pageObjects.PageObjects"/>
+<fullyQualifiedTypeName name="com.ecommerce.pages.iPhonesPage"/>
 </qualifiedTypeNameHistroy>

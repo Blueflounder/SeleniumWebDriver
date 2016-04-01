@@ -1,0 +1,24 @@
+package com.ecommerce.pages;
+
+import org.openqa.selenium.WebDriver;
+
+import com.ecommerce.pageObjects.PageObjects;
+
+public class AccessoriesPage extends PageObjects {
+	
+	WebDriver driver;
+	
+	public AccessoriesPage(WebDriver driver) {
+		super(driver);
+	}
+	
+	public void addSingleItemToCart()
+	{
+		addSingleItemToCart();
+	}
+	
+	public void addMultipleItemsToCart(){
+		
+		addMultipleItemsToCart();
+	}
+}
