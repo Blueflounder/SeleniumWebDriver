@@ -6,7 +6,7 @@
       <class name="com.ecommerce.callingFunctions.CallingFunctions">
         <methods>
           <include name="verifyThatAllItemsAreAddedToCart"/>
-          <include name="tear"/>
+          <include name="removeItemsFromCart"/>
           <include name="OpenSite"/>
         </methods>
       </class> <!-- com.ecommerce.callingFunctions.CallingFunctions -->

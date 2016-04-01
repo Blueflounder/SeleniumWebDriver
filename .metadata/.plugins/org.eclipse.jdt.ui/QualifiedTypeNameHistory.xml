@@ -48,6 +48,7 @@
 <fullyQualifiedTypeName name="com.ecommerce.pages.HomePage"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.StaleElementReferenceException"/>
-<fullyQualifiedTypeName name="com.ecommerce.pageObjects.PageObjects"/>
 <fullyQualifiedTypeName name="com.ecommerce.pages.iPhonesPage"/>
+<fullyQualifiedTypeName name="java.lang.InterruptedException"/>
+<fullyQualifiedTypeName name="com.ecommerce.pageObjects.PageObjects"/>
 </qualifiedTypeNameHistroy>
