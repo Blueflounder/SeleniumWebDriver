@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class CheckoutPage {
 	
@@ -104,15 +105,34 @@ public class CheckoutPage {
 		System.out.println("All items have been removed successfully from the cart");
 	}
 	
-	public void purchaseItems(){
+	public void purchaseItems() throws InterruptedException{
 		
 		driver.findElement(By.linkText("Continue")).click();
 		driver.findElement(By.id("current_country")).click();
-		List<WebElement> countryList = driver.findElements(By.className("uniform-current_country"));
-		for(WebElement countryName:countryList){
-			System.out.println(countryName);
-		}
+		WebElement countryList = driver.findElement(By.id("current_country"));
+		Select countryDropDown = new Select(countryList);
+		countryDropDown.selectByVisibleText("India");
+		Thread.sleep(1000);
+		driver.findElement(By.id("wpsc_checkout_form_9")).sendKeys("blueflounder@mailinator.com");
+		Thread.sleep(3000);
+		yourBillingDetails();
+		
+	}
+	
+	private void yourBillingDetails(){
+		
+		WebElement billingDetailsTable = driver.findElement(By.className("wpsc_checkout_table table-1"));
+		List<WebElement> rows = billingDetailsTable.findElements(By.tagName("tr"));
+		List<WebElement> columns = billingDetailsTable.findElements(By.tagName("td"));
+		System.out.println("Row size is: "+rows.size());
+		System.out.println("Column size is: "+columns.size());
+		
+	}
+	
+	private void shippingAddress(){
+		
 	}
 
 }
+
 

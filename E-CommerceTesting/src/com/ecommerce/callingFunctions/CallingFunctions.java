@@ -54,7 +54,7 @@ public class CallingFunctions {
 //	}
 	
 	@Test(dependsOnMethods = {"verifyThatAnItemIsAddedToCart"})
-	public void purchaseItems(){
+	public void purchaseItems() throws InterruptedException{
 		
 		cp.purchaseItems();
 	}
