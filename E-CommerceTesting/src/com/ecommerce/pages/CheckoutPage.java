@@ -32,14 +32,14 @@ public class CheckoutPage {
 		price = driver.findElements(By.className("pricedisplay"));
 		System.out.println("Updated price of an item: "+price.get(0).getText());
 		
-		removeButton = driver.findElements(By.name("submit"));
-		removeButton.get(1).click();
-		Thread.sleep(2000);
-		
-		if(removeButton.isEmpty())
-			System.out.println("Remove item failed");
-		else
-			System.out.println("Remove item is successful");
+//		removeButton = driver.findElements(By.name("submit"));
+//		removeButton.get(1).click();
+//		Thread.sleep(2000);
+//		
+//		if(removeButton.isEmpty())
+//			System.out.println("Remove item failed");
+//		else
+//			System.out.println("Remove item is successful");
 		
 	}
 	
@@ -89,7 +89,7 @@ public class CheckoutPage {
 					Thread.sleep(2000);
 					WebElement checkoutTable2 = driver.findElement(By.className("checkout_cart"));
 					List<WebElement> rows2 = checkoutTable2.findElements(By.tagName("tr"));
-					List<WebElement> columns = rows2.get(i).findElements(By.tagName("td"));
+					List<WebElement> columns = rows2.get(1).findElements(By.tagName("td"));
 					System.out.println("Total number of columns are: "+columns.size());
 					WebElement removeButton = columns.get(5).findElement(By.name("submit"));
 					removeButton.submit();
@@ -99,8 +99,19 @@ public class CheckoutPage {
 					System.out.println("Trying to recover from a stale element :" + e.getMessage());
 				}
 			}
+			
 		}
+		System.out.println("All items have been removed successfully from the cart");
+	}
+	
+	public void purchaseItems(){
 		
+		driver.findElement(By.linkText("Continue")).click();
+		driver.findElement(By.id("current_country")).click();
+		List<WebElement> countryList = driver.findElements(By.className("uniform-current_country"));
+		for(WebElement countryName:countryList){
+			System.out.println(countryName);
+		}
 	}
 
 }

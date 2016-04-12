@@ -5,9 +5,10 @@
     <classes>
       <class name="com.ecommerce.callingFunctions.CallingFunctions">
         <methods>
-          <include name="verifyThatAllItemsAreAddedToCart"/>
-          <include name="removeItemsFromCart"/>
+          <include name="purchaseItems"/>
+          <include name="tear"/>
           <include name="OpenSite"/>
+          <include name="verifyThatAnItemIsAddedToCart"/>
         </methods>
       </class> <!-- com.ecommerce.callingFunctions.CallingFunctions -->
     </classes>

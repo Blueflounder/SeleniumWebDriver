@@ -1,56 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="2" passed="1">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="68183" started-at="2016-04-01T15:25:41Z" finished-at="2016-04-01T15:26:50Z">
+  <suite name="Default suite" duration-ms="52835" started-at="2016-04-12T13:58:14Z" finished-at="2016-04-12T13:59:07Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="68183" started-at="2016-04-01T15:25:41Z" finished-at="2016-04-01T15:26:50Z">
+    <test name="Default test" duration-ms="52835" started-at="2016-04-12T13:58:14Z" finished-at="2016-04-12T13:59:07Z">
       <class name="com.ecommerce.callingFunctions.CallingFunctions">
-        <test-method status="PASS" signature="OpenSite()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1829d67]" name="OpenSite" is-config="true" duration-ms="24126" started-at="2016-04-01T20:55:41Z" finished-at="2016-04-01T20:56:05Z">
+        <test-method status="PASS" signature="OpenSite()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="OpenSite" is-config="true" duration-ms="26757" started-at="2016-04-12T19:28:14Z" finished-at="2016-04-12T19:28:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OpenSite -->
-        <test-method status="PASS" signature="verifyThatAllItemsAreAddedToCart()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1829d67]" name="verifyThatAllItemsAreAddedToCart" duration-ms="36840" started-at="2016-04-01T20:56:05Z" finished-at="2016-04-01T20:56:42Z">
+        <test-method status="PASS" signature="verifyThatAnItemIsAddedToCart()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="verifyThatAnItemIsAddedToCart" duration-ms="16046" started-at="2016-04-12T19:28:41Z" finished-at="2016-04-12T19:28:57Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyThatAllItemsAreAddedToCart -->
-        <test-method status="FAIL" signature="removeItemsFromCart()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1829d67]" name="removeItemsFromCart" duration-ms="7199" started-at="2016-04-01T20:56:42Z" depends-on-methods="com.ecommerce.callingFunctions.CallingFunctions.verifyThatAllItemsAreAddedToCart" finished-at="2016-04-01T20:56:50Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.ecommerce.pages.CheckoutPage.removeItemsFromCart(CheckoutPage.java:90)
-	at com.ecommerce.callingFunctions.CallingFunctions.removeItemsFromCart(CallingFunctions.java:53)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:774)
-	at org.testng.TestRunner.run(TestRunner.java:624)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.run(TestNG.java:1048)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+        </test-method> <!-- verifyThatAnItemIsAddedToCart -->
+        <test-method status="PASS" signature="purchaseItems()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="purchaseItems" duration-ms="6646" started-at="2016-04-12T19:28:57Z" depends-on-methods="com.ecommerce.callingFunctions.CallingFunctions.verifyThatAnItemIsAddedToCart" finished-at="2016-04-12T19:29:04Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- removeItemsFromCart -->
+        </test-method> <!-- purchaseItems -->
+        <test-method status="PASS" signature="tear()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="tear" is-config="true" duration-ms="3340" started-at="2016-04-12T19:29:04Z" finished-at="2016-04-12T19:29:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tear -->
       </class> <!-- com.ecommerce.callingFunctions.CallingFunctions -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

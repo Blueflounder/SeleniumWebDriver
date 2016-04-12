@@ -32,7 +32,7 @@ public class CallingFunctions {
 		iPhone = new iPhonesPage(driver);
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void verifyThatAllItemsAreAddedToCart() throws InterruptedException{
 		
 		iPhone.navigationToPages("MacBooks");
@@ -40,23 +40,29 @@ public class CallingFunctions {
 		cp.updateMultipleItemQuantity("1");
 	}
 	
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void verifyThatAnItemIsAddedToCart() throws InterruptedException{
 		
 		home.navigationToPages("Accessories");
 		acc.addSingleItemToCart(0);
 	}
 	
-	@Test(dependsOnMethods = {"verifyThatAllItemsAreAddedToCart"})
-	public void removeItemsFromCart() throws InterruptedException{
+//	@Test(dependsOnMethods = {"verifyThatAllItemsAreAddedToCart"})
+//	public void removeItemsFromCart() throws InterruptedException{
+//		
+//		cp.removeItemsFromCart();
+//	}
+	
+	@Test(dependsOnMethods = {"verifyThatAnItemIsAddedToCart"})
+	public void purchaseItems(){
 		
-		cp.removeItemsFromCart();
+		cp.purchaseItems();
 	}
 	
-//	@AfterTest
-//	public void tear() {
-//		driver.quit();
-//	}
+	@AfterTest
+	public void tear() {
+		driver.quit();
+	}
 	
 	
 
