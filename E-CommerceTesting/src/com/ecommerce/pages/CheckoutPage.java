@@ -112,24 +112,38 @@ public class CheckoutPage {
 		WebElement countryList = driver.findElement(By.id("current_country"));
 		Select countryDropDown = new Select(countryList);
 		countryDropDown.selectByVisibleText("India");
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		driver.findElement(By.id("wpsc_checkout_form_9")).sendKeys("blueflounder@mailinator.com");
 		Thread.sleep(3000);
-		yourBillingDetails();
-		
+		enterBillingContactDetails("Chaitanya", "Kulkarni", "Karvenagar", "Pune", "Maharashtra", "India", "9999999999");
+		entershippingAddress("Chaitanya", "Kulkarni", "Karvenagar", "Pune", "Maharashtra", "India");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("html/body/div[2]/div/div/div/div/div/article/div/div[2]/div[2]/div/form/div[4]/div/div/span/input")).click();
 	}
 	
-	private void yourBillingDetails(){
+	private void enterBillingContactDetails(String FName, String LName, String Address, String City, String State, String Country, String Phone){
 		
-		WebElement billingDetailsTable = driver.findElement(By.className("wpsc_checkout_table table-1"));
-		List<WebElement> rows = billingDetailsTable.findElements(By.tagName("tr"));
-		List<WebElement> columns = billingDetailsTable.findElements(By.tagName("td"));
-		System.out.println("Row size is: "+rows.size());
-		System.out.println("Column size is: "+columns.size());
-		
+		driver.findElement(By.id("wpsc_checkout_form_2")).sendKeys(FName);
+		driver.findElement(By.id("wpsc_checkout_form_3")).sendKeys(LName);
+		driver.findElement(By.id("wpsc_checkout_form_4")).sendKeys(Address);
+		driver.findElement(By.id("wpsc_checkout_form_5")).sendKeys(City);
+		driver.findElement(By.id("wpsc_checkout_form_6")).sendKeys(State);
+		WebElement countryList = driver.findElement(By.id("wpsc_checkout_form_7"));
+		Select countryDropDown = new Select(countryList);
+		countryDropDown.selectByVisibleText(Country);
+		driver.findElement(By.id("wpsc_checkout_form_18")).sendKeys(Phone);
 	}
 	
-	private void shippingAddress(){
+	private void entershippingAddress(String FName, String LName, String Address, String City, String State, String Country){
+		
+		driver.findElement(By.id("wpsc_checkout_form_11")).sendKeys(FName);
+		driver.findElement(By.id("wpsc_checkout_form_12")).sendKeys(LName);
+		driver.findElement(By.id("wpsc_checkout_form_13")).sendKeys(Address);
+		driver.findElement(By.id("wpsc_checkout_form_14")).sendKeys(City);
+		driver.findElement(By.id("wpsc_checkout_form_15")).sendKeys(State);
+		WebElement countryList = driver.findElement(By.id("wpsc_checkout_form_16"));
+		Select countryDropDown = new Select(countryList);
+		countryDropDown.selectByVisibleText(Country);
 		
 	}
 
