@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="57952" started-at="2016-04-13T14:52:12Z" finished-at="2016-04-13T14:53:10Z">
+  <suite name="Default suite" duration-ms="69936" started-at="2016-04-14T10:36:45Z" finished-at="2016-04-14T10:37:55Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="57952" started-at="2016-04-13T14:52:12Z" finished-at="2016-04-13T14:53:10Z">
+    <test name="Default test" duration-ms="69936" started-at="2016-04-14T10:36:45Z" finished-at="2016-04-14T10:37:55Z">
       <class name="com.ecommerce.callingFunctions.CallingFunctions">
-        <test-method status="PASS" signature="OpenSite()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="OpenSite" is-config="true" duration-ms="17833" started-at="2016-04-13T20:22:12Z" finished-at="2016-04-13T20:22:30Z">
+        <test-method status="PASS" signature="OpenSite()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="OpenSite" is-config="true" duration-ms="19433" started-at="2016-04-14T16:06:45Z" finished-at="2016-04-14T16:07:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OpenSite -->
-        <test-method status="PASS" signature="verifyThatAnItemIsAddedToCart()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="verifyThatAnItemIsAddedToCart" duration-ms="10327" started-at="2016-04-13T20:22:30Z" finished-at="2016-04-13T20:22:41Z">
+        <test-method status="PASS" signature="verifyThatAnItemIsAddedToCart()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="verifyThatAnItemIsAddedToCart" duration-ms="8645" started-at="2016-04-14T16:07:04Z" finished-at="2016-04-14T16:07:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyThatAnItemIsAddedToCart -->
-        <test-method status="PASS" signature="purchaseItems()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="purchaseItems" duration-ms="26122" started-at="2016-04-13T20:22:41Z" depends-on-methods="com.ecommerce.callingFunctions.CallingFunctions.verifyThatAnItemIsAddedToCart" finished-at="2016-04-13T20:23:07Z">
+        <test-method status="PASS" signature="verifyUserCanPurchaseItems()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="verifyUserCanPurchaseItems" duration-ms="37857" started-at="2016-04-14T16:07:13Z" depends-on-methods="com.ecommerce.callingFunctions.CallingFunctions.verifyThatAnItemIsAddedToCart" finished-at="2016-04-14T16:07:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- purchaseItems -->
-        <test-method status="PASS" signature="tear()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="tear" is-config="true" duration-ms="3572" started-at="2016-04-13T20:23:07Z" finished-at="2016-04-13T20:23:10Z">
+        </test-method> <!-- verifyUserCanPurchaseItems -->
+        <test-method status="PASS" signature="tear()[pri:0, instance:com.ecommerce.callingFunctions.CallingFunctions@1dfb72a]" name="tear" is-config="true" duration-ms="3970" started-at="2016-04-14T16:07:51Z" finished-at="2016-04-14T16:07:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tear -->

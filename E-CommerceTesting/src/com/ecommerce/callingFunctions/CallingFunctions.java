@@ -9,6 +9,7 @@ import com.ecommerce.pages.AccessoriesPage;
 import com.ecommerce.pages.CheckoutPage;
 import com.ecommerce.pages.HomePage;
 import com.ecommerce.pages.iPhonesPage;
+import com.ecommerce.pages.TransactionResultsPage;
 
 public class CallingFunctions {
 	
@@ -17,6 +18,7 @@ public class CallingFunctions {
 	CheckoutPage cp;
 	HomePage home;
 	iPhonesPage iPhone;
+	TransactionResultsPage trp;
 	private WebDriver driver;
 	private String URL = "http://store.demoqa.com/";
 	
@@ -30,6 +32,7 @@ public class CallingFunctions {
 		cp = new CheckoutPage(driver);
 		home = new HomePage(driver);
 		iPhone = new iPhonesPage(driver);
+		trp = new TransactionResultsPage(driver);
 	}
 	
 	@Test(enabled=false)
@@ -54,9 +57,11 @@ public class CallingFunctions {
 //	}
 	
 	@Test(dependsOnMethods = {"verifyThatAnItemIsAddedToCart"})
-	public void purchaseItems() throws InterruptedException{
+	public void verifyUserCanPurchaseItems() throws InterruptedException{
 		
 		cp.purchaseItems();
+		Thread.sleep(2000);
+		trp.getPageHeader();
 	}
 	
 	@AfterTest

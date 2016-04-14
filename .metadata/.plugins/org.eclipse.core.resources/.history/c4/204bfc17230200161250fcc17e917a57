@@ -1,0 +1,12 @@
+package com.ecommerce.pages;
+
+import org.openqa.selenium.WebDriver;
+
+public class TransactionResultsPage {
+
+	WebDriver driver;
+	
+	public TransactionResultsPage(WebDriver driver){
+		this.driver = driver;
+	}
+}

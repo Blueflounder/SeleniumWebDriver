@@ -107,6 +107,7 @@ public class CheckoutPage {
 	
 	public void purchaseItems() throws InterruptedException{
 		
+		Thread.sleep(2000);
 		driver.findElement(By.linkText("Continue")).click();
 		driver.findElement(By.id("current_country")).click();
 		WebElement countryList = driver.findElement(By.id("current_country"));
@@ -114,14 +115,17 @@ public class CheckoutPage {
 		countryDropDown.selectByVisibleText("India");
 		Thread.sleep(3000);
 		driver.findElement(By.id("wpsc_checkout_form_9")).sendKeys("blueflounder@mailinator.com");
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		enterBillingContactDetails("Chaitanya", "Kulkarni", "Karvenagar", "Pune", "Maharashtra", "India", "9999999999");
+		Thread.sleep(1000);
 		entershippingAddress("Chaitanya", "Kulkarni", "Karvenagar", "Pune", "Maharashtra", "India");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("html/body/div[2]/div/div/div/div/div/article/div/div[2]/div[2]/div/form/div[4]/div/div/span/input")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("html/body/div[2]/div/div/div/div/div/article/div/div[2]/div[2]/div/form/div[5]/div/div/span/input")).click();
 	}
 	
-	private void enterBillingContactDetails(String FName, String LName, String Address, String City, String State, String Country, String Phone){
+	private void enterBillingContactDetails(String FName, String LName, String Address, String City, String State, String Country, String Phone) {
 		
 		driver.findElement(By.id("wpsc_checkout_form_2")).sendKeys(FName);
 		driver.findElement(By.id("wpsc_checkout_form_3")).sendKeys(LName);
@@ -144,7 +148,6 @@ public class CheckoutPage {
 		WebElement countryList = driver.findElement(By.id("wpsc_checkout_form_16"));
 		Select countryDropDown = new Select(countryList);
 		countryDropDown.selectByVisibleText(Country);
-		
 	}
 
 }
