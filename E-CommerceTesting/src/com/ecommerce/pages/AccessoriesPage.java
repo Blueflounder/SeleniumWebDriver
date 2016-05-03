@@ -6,7 +6,7 @@ import com.ecommerce.pageObjects.PageObjects;
 
 public class AccessoriesPage extends PageObjects {
 
-	WebDriver driver;
+	
 
 	public AccessoriesPage(WebDriver driver) throws InterruptedException {
 		super(driver);
