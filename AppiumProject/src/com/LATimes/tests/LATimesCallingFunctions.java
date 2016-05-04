@@ -45,7 +45,7 @@ public class LATimesCallingFunctions {
 	
 	
 	@SuppressWarnings("deprecation")
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void verifySwipingThroughSectionFrontsRightToLeft() throws InterruptedException {
 
 		tp.swipeThroughSectionFrontToTheRight();
@@ -55,6 +55,11 @@ public class LATimesCallingFunctions {
 		//Assertion
 		Assert.assertEquals(true, userIsAbleToNavigate);
 
+	}
+	
+	@Test(enabled = true)
+	public void getSizeOfSections(){
+		tp.getSizeOfSections();
 	}
 	
 //	@AfterTest(alwaysRun = true)

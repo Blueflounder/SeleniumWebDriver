@@ -1,5 +1,6 @@
 package com.LATimes.pageObjects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
@@ -16,20 +17,63 @@ public abstract class SectionFrontPageObjects {
 	String currentSectionName, nextSectionName;
 	int i;
 	List<WebElement> sectionNames;
+	List<WebElement> sections;
 	int getlastTabIndex, currentTabIndex;
+	TouchScreenGestures tsg;
 
 	public SectionFrontPageObjects(AndroidDriver<WebElement> androidDriver) {
 		this.androidDriver = androidDriver;
 		sectionNames = androidDriver.findElementsById("tabTitle");
+		tsg = new TouchScreenGestures();
+		System.out.println("Sections available currently are: "+sectionNames.size());
 	}
-
-	// System.out.println("Number of available sections are: " +
-	// sectionNames.size());
-	TouchScreenGestures tsg = new TouchScreenGestures();
 
 	private int getlastTabIndex() {
 //		System.out.println(sectionNames.size());
 		return sectionNames.size() - 1;
+	}
+	
+	public int getSizeOfSections(){
+		
+	
+		List<String> sectionNamesList = new ArrayList<String>();
+		androidDriver.findElementByClassName("android.widget.ImageButton").click();
+		List<WebElement> lables = androidDriver.findElementsById("lbl_list_item");
+		for (WebElement tab : lables){
+			String attributeValue = tab.getAttribute("text").toString();
+			if (attributeValue.contains("Edit Sections")) {
+				tab.click();
+				break;
+			}
+		}
+		List<WebElement> sections = androidDriver.findElementsById("nav_sections_text");
+		
+		for(WebElement section: sections){
+			sectionNamesList.add(section.getText());
+			
+			
+		}
+		System.out.println("Number of available sections are: "+sections.size());
+		
+		for(int i=0; i < sections.size(); i++){
+			
+			System.out.println(sections.get(i).getText());
+			
+			for(WebElement sectionName : sections){
+				
+				
+				
+			}
+			
+//			if(!(PreviousName = "Saved" && checked = false))
+//				list.add("")
+		}
+		
+//		System.out.println(list.size());
+//		return list.size();
+		return 1;
+		
+		
 	}
 
 	public int getSelectedTabTitleIndex() throws InterruptedException {
@@ -38,9 +82,13 @@ public abstract class SectionFrontPageObjects {
 		for (WebElement tab : sectionNames) {
 			String attributeValue = tab.getAttribute("selected").toString();
 			if (attributeValue.contains("true")) {
+				index++;
 				break;
 			}
-			index++;
+			else{
+				
+			}
+			
 		}
 		return index;
 	}
@@ -66,11 +114,20 @@ public abstract class SectionFrontPageObjects {
 		boolean tabTitlesMatch = true;
 		String selectedTabTitleBefore = null;
 		String selectedTabTitleAfter = null;
+		int noOfSections = 0;
 
 		while (getlastTabIndex() != getSelectedTabTitleIndex()) {
 			selectedTabTitleBefore = getSelectedTabTitle();
-
-			clickTabNextToSelectedTab();
+			System.out.println("Currently visible sections are: "+sectionNames.size());
+			System.out.println("Selected tab index is: "+getSelectedTabTitleIndex());
+			if(noOfSections != 14){
+				tsg.swipeRightToLeftPortraitMode(androidDriver);
+			}
+			else{
+				break;
+			}
+			
+//			clickTabNextToSelectedTab();
 			selectedTabTitleAfter = getSelectedTabTitle();
 
 			if (selectedTabTitleBefore == selectedTabTitleAfter) {
@@ -116,5 +173,7 @@ public abstract class SectionFrontPageObjects {
 	public void verifyThatUserCanReadArticles() {
 
 	}
+	
+
 
 }
