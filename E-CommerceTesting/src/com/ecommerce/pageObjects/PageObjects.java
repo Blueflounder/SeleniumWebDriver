@@ -17,6 +17,7 @@ public abstract class PageObjects {
 	public PageObjects(WebDriver driver) {
 		this.driver = driver;
 	}
+	
 
 	public void addSingleItemToCart(int i) throws InterruptedException {
 
