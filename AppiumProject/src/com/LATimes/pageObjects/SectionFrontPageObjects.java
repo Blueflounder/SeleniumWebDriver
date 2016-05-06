@@ -63,6 +63,7 @@ public abstract class SectionFrontPageObjects {
 		int scrollEnd = screenHeightEnd.intValue();
 		androidDriver.swipe(0,scrollStart,0,scrollEnd,1000);
 		
+		
 		for(int i=0; i < sections.size(); i++){
 			
 			System.out.println(sections.get(i).getText());
