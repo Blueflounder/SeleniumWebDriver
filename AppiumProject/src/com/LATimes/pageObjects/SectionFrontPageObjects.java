@@ -1,8 +1,9 @@
 package com.LATimes.pageObjects;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+//import java.util.List;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -50,10 +51,17 @@ public abstract class SectionFrontPageObjects {
 		
 		for(WebElement section: sections){
 			sectionNamesList.add(section.getText());
-			
-			
 		}
+		
+		System.out.println("Sections added in the list are: "+sectionNamesList);
 		System.out.println("Number of available sections are: "+sections.size());
+		
+		Dimension dimensions = androidDriver.manage().window().getSize();
+		Double screenHeightStart = dimensions.getHeight() * 0.5;
+		int scrollStart = screenHeightStart.intValue();
+		Double screenHeightEnd = dimensions.getHeight() * 0.2;
+		int scrollEnd = screenHeightEnd.intValue();
+		androidDriver.swipe(0,scrollStart,0,scrollEnd,1000);
 		
 		for(int i=0; i < sections.size(); i++){
 			
