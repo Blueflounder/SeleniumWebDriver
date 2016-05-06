@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="device_ServerPort" value="8001"/>
+  <parameter name="app_package" value="com.apptivateme.next.la"/>
+  <parameter name="platform_Name" value="Android"/>
+  <parameter name="app_Activity" value="com.tribune.universalnews.MainActivity"/>
+  <parameter name="device_Name" value="Samsung Galaxy S5"/>
+  <test name="LATimesAndroidTest(failed)">
+    <parameter name="device_ServerPort" value="8001"/>
+    <parameter name="app_package" value="com.apptivateme.next.la"/>
+    <parameter name="platform_Name" value="Android"/>
+    <parameter name="app_Activity" value="com.tribune.universalnews.MainActivity"/>
+    <parameter name="device_Name" value="Samsung Galaxy S5"/>
+    <classes>
+      <class name="com.LATimes.tests.LATimesCallingFunctions">
+        <methods>
+          <include name="verifySwipingThroughSectionFrontsRightToLeft"/>
+          <include name="testSetUp"/>
+        </methods>
+      </class> <!-- com.LATimes.tests.LATimesCallingFunctions -->
+    </classes>
+  </test> <!-- LATimesAndroidTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
