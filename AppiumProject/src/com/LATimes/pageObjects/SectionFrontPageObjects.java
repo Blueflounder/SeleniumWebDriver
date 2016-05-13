@@ -1,171 +1,153 @@
 package com.LATimes.pageObjects;
 
-import java.util.*;
-//import java.util.List;
-
+import java.util.ArrayList;
+import java.util.List;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+
+import com.LATimes.Gestures.TouchScreenGestures;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 
 import io.appium.java_client.android.AndroidDriver;
-import com.LATimes.Gestures.*;
 
 public abstract class SectionFrontPageObjects {
 
-	AndroidDriver<WebElement> androidDriver;
-	String currentSectionName, nextSectionName;
-	int i;
-	List<WebElement> sectionNames;
-	List<WebElement> sections;
-	int getlastTabIndex, currentTabIndex;
+	AndroidDriver androidDriver;
+	List<WebElement> sectionFrontNames, listOfSectionNames;
 	TouchScreenGestures tsg;
+	boolean tabTitlesMatch = true;
+	String tabTitleBeforeSwipe, tabTitleAfterSwipe;
+	int noOfSections;
 
-	public SectionFrontPageObjects(AndroidDriver<WebElement> androidDriver) {
+	public SectionFrontPageObjects(AndroidDriver androidDriver) {
 		this.androidDriver = androidDriver;
-		sectionNames = androidDriver.findElementsById("tabTitle");
+		sectionFrontNames = androidDriver.findElementsById("tabTitle");
 		tsg = new TouchScreenGestures();
-		System.out.println("Sections available currently are: "+sectionNames.size());
 	}
 
-	private int getlastTabIndex() {
-//		System.out.println(sectionNames.size());
-		return sectionNames.size() - 1;
-	}
-	
-	public int getSizeOfSections(){
-		
-	
+	public int getSizeOfSections() {
+
+		System.out.println("Getting number of sections");
 		List<String> sectionNamesList = new ArrayList<String>();
-		androidDriver.findElementByClassName("android.widget.ImageButton").click();
-		List<WebElement> lables = androidDriver.findElementsById("lbl_list_item");
-		for (WebElement tab : lables){
-			String attributeValue = tab.getAttribute("text").toString();
+		androidDriver.findElementByAccessibilityId("Open navigation drawer").click();
+		List<WebElement> menuList = androidDriver.findElementsById("lbl_list_item");
+		for (WebElement menuName : menuList) {
+			String attributeValue = menuName.getAttribute("text").toString();
 			if (attributeValue.contains("Edit Sections")) {
-				tab.click();
+				menuName.click();
+				break;
+			}
+		}//end of for each
+
+		int lastIndex;
+		
+		for (int i = 0; i < 6; i++) {
+			
+//			sectionNames = androidDriver.findElementsById("nav_sections_text");
+			tsg.swipeVertically(androidDriver);
+			listOfSectionNames = androidDriver.findElementsById("nav_sections_text");
+
+			for (WebElement sectionName : listOfSectionNames) {
+				sectionNamesList.add(sectionName.getText());
+			}
+
+			lastIndex = listOfSectionNames.size();
+			String lastSectionName = listOfSectionNames.get(lastIndex - 1).getText();
+			if (lastSectionName.contains("Columnists & Critics"))
+				break;
+		}
+
+		// ArrayList<String> list1 = new ArrayList<String>(new LinkedHashSet<String>(sectionNamesList));
+		
+		//Removing duplicate values from the sectionNamesList
+		ImmutableList<String> finalSectionList = ImmutableSet.copyOf(sectionNamesList).asList();
+		System.out.println("Number of sections available: " + finalSectionList.size());
+		androidDriver.findElementByAccessibilityId("Navigate up").click();
+		return finalSectionList.size();
+
+	}
+
+	public String getSelectedSectionFrontTitle() throws InterruptedException {
+		String sectionFrontTitle = null;
+		String attributeValue;
+		sectionFrontNames = androidDriver.findElementsById("tabTitle");
+		for (WebElement sectionName : sectionFrontNames) {
+			attributeValue = sectionName.getAttribute("selected").toString();
+			if (attributeValue.contains("true")) {
+				sectionFrontTitle = sectionName.getAttribute("text");
 				break;
 			}
 		}
-		List<WebElement> sections = androidDriver.findElementsById("nav_sections_text");
-		
-		for(WebElement section: sections){
-			sectionNamesList.add(section.getText());
-		}
-		
-		System.out.println("Sections added in the list are: "+sectionNamesList);
-		System.out.println("Number of available sections are: "+sections.size());
-		
-		Dimension dimensions = androidDriver.manage().window().getSize();
-		Double screenHeightStart = dimensions.getHeight() * 0.5;
-		int scrollStart = screenHeightStart.intValue();
-		Double screenHeightEnd = dimensions.getHeight() * 0.2;
-		int scrollEnd = screenHeightEnd.intValue();
-		androidDriver.swipe(0,scrollStart,0,scrollEnd,1000);
-		
-		
-		for(int i=0; i < sections.size(); i++){
-			
-			System.out.println(sections.get(i).getText());
-			
-			for(WebElement sectionName : sections){
-				
-				
-				
-			}
-			
-//			if(!(PreviousName = "Saved" && checked = false))
-//				list.add("")
-		}
-		
-//		System.out.println(list.size());
-//		return list.size();
-		return 1;
-		
-		
+
+		return sectionFrontTitle;
 	}
 
-	public int getSelectedTabTitleIndex() throws InterruptedException {
+	public boolean swipeThroughSectionFrontToTheRight(String firstSectionName, String lastSectionName)
+			throws InterruptedException {
+
+		noOfSections = getSizeOfSections();
+		System.out.println("No of Sections Received " + noOfSections);
+		System.out.println("Swiping to the END of the sections");
 		Thread.sleep(1000);
-		int index = 0;
-		for (WebElement tab : sectionNames) {
-			String attributeValue = tab.getAttribute("selected").toString();
-			if (attributeValue.contains("true")) {
-				index++;
-				break;
-			}
-			else{
-				
-			}
-			
+
+		for (int i = 2; i < noOfSections; i++) {
+
+			tsg.swipeRightToLeftPortraitMode(androidDriver);
+			Thread.sleep(300);
+
+		} // end of for loop
+		
+		Thread.sleep(1000);
+		if (!getSelectedSectionFrontTitle().equals(lastSectionName)) {
+			tabTitlesMatch = false;
 		}
-		return index;
-	}
-
-	private void clickTabNextToSelectedTab() throws InterruptedException {
-		sectionNames.get(getSelectedTabTitleIndex() + 1).click();
-	}
-
-	public String getSelectedTabTitle() throws InterruptedException {
-		String tabTitleValue = null;
-		for (WebElement tab : sectionNames) {
-			String attributeValue = tab.getAttribute("selected").toString();
-			if (attributeValue.contains("true")) {
-				tabTitleValue = tab.getAttribute("text");
-				break;
-			}
-		}
-		return tabTitleValue;
-	}
-
-	public boolean swipeThroughSectionFrontToTheRight() throws InterruptedException {
-
-		boolean tabTitlesMatch = true;
-		String selectedTabTitleBefore = null;
-		String selectedTabTitleAfter = null;
-		int noOfSections = 0;
-
-		while (getlastTabIndex() != getSelectedTabTitleIndex()) {
-			selectedTabTitleBefore = getSelectedTabTitle();
-			System.out.println("Currently visible sections are: "+sectionNames.size());
-			System.out.println("Selected tab index is: "+getSelectedTabTitleIndex());
-			if(noOfSections != 14){
-				tsg.swipeRightToLeftPortraitMode(androidDriver);
-			}
-			else{
-				break;
-			}
-			
-//			clickTabNextToSelectedTab();
-			selectedTabTitleAfter = getSelectedTabTitle();
-
-			if (selectedTabTitleBefore == selectedTabTitleAfter) {
-				tabTitlesMatch = false;
-				break;
-			}
-		}
+		tabTitlesMatch = swipeThroughSectionFrontToTheLeft(noOfSections, firstSectionName);
 		return tabTitlesMatch;
 
 	}
 
-	public void swipeThroughSectionFrontToTheLeft() {
+	public boolean swipeThroughSectionFrontToTheLeft(int j, String firstSectionName) throws InterruptedException {
 
-		for (int i = sectionNames.size(); i > 0; i--) {
+		System.out.println("Swiping to the START of the sections");
 
-			tsg.swipeRightToLeftPortraitMode(androidDriver);
+		for (int k = 0; k < j; k++) {
 
+			tsg.swipeLeftToRightInPortraitMode(androidDriver);
+			Thread.sleep(300);
 		}
-
+		if (!getSelectedSectionFrontTitle().equals(firstSectionName)) {
+			tabTitlesMatch = false;
+		}
+		return tabTitlesMatch;
 	}
 
-	public void verifyThatUserCanScrollThroughSectionFrontArticles() {
-
-		List<WebElement> sectionNames = androidDriver.findElementsById("tabTitle");
-		System.out.println("Number of available sections are: " + sectionNames.size());
-		for (int i = sectionNames.size(); i > 0; i--) {
-
+	public boolean verifyThatUserCanJumpToASection(String sectionNameToBeJumpedTo, int noOfSections) throws InterruptedException {
+		
+		boolean userIsJumpedToSection = false;
+		String sectionTitle;
+		
+		for(int i = 0; i < noOfSections; i++){
+			
+			sectionFrontNames = androidDriver.findElementsById("tabTitle");
+			tsg.swipeSectionFrontNames(androidDriver);
+//			Thread.sleep(400);
+			
+			for (WebElement sectionName : sectionFrontNames) {
+				
+				sectionTitle = sectionName.getAttribute("text");
+				System.out.println(sectionTitle);
+				if (sectionTitle.equals(sectionNameToBeJumpedTo)){
+					sectionName.click();
+					userIsJumpedToSection = true;
+					break;
+				}	
+			}
+			if(userIsJumpedToSection)
+				break;
+			
 		}
-
+		return userIsJumpedToSection;
 	}
 
 	public void verifyThatUserCanSaveArticlesFromSectionFront() {
@@ -182,7 +164,5 @@ public abstract class SectionFrontPageObjects {
 	public void verifyThatUserCanReadArticles() {
 
 	}
-	
-
 
 }

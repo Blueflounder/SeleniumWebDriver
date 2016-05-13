@@ -5,8 +5,7 @@
     <classes>
       <class name="com.LATimes.tests.LATimesCallingFunctions">
         <methods>
-          <include name="verifySwipingThroughSectionFrontsRightToLeft"/>
-          <include name="Exit"/>
+          <include name="swipeThroughSectionFronts"/>
         </methods>
       </class> <!-- com.LATimes.tests.LATimesCallingFunctions -->
     </classes>
