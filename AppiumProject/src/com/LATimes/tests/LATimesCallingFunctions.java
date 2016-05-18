@@ -64,7 +64,7 @@ public class LATimesCallingFunctions {
 		boolean jumpToSectionStatus = tp.jumpToASection("Real Estate", tp.getNumberOfSections());
 		Assert.assertEquals(true, jumpToSectionStatus, "User was able to JUMP to a section SUCCESSFULLY");
 		if (jumpToSectionStatus == true)
-			System.out.println("User was able to JUMP to the section successfully");
+			System.out.println("User was able to JUMP to the section SUCCESSFULLY");
 		else
 			System.out.println("User was NOT able to JUMP to a section successfully");
 		
