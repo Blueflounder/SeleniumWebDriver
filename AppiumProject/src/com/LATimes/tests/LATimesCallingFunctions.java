@@ -44,8 +44,8 @@ public class LATimesCallingFunctions {
 
 	}
 
-	@Test(enabled = true)
-	public void swipeThroughSectionFronts() throws InterruptedException {
+	@Test(enabled = false)
+	public void verifyThatUserCanSwipeThroughSectionFronts() throws InterruptedException {
 
 		boolean sectionSwipeStatus = tp.swipeThroughSectionFrontToTheRight("Saved", "Columnists & Critics");
 
@@ -58,15 +58,22 @@ public class LATimesCallingFunctions {
 	}
 
 	@Test(enabled = false)
-	public void jumpToASection() throws InterruptedException{
+	public void verifyThatUserCanJumpToASection() throws InterruptedException{
 		
 //		String sectionToBeJumpedTo = "Real Estate";
-		boolean jumpToSectionStatus = tp.verifyThatUserCanJumpToASection("Real Estate", tp.getSizeOfSections());
+		boolean jumpToSectionStatus = tp.jumpToASection("Real Estate", tp.getNumberOfSections());
 		Assert.assertEquals(true, jumpToSectionStatus, "User was able to JUMP to a section SUCCESSFULLY");
 		if (jumpToSectionStatus == true)
 			System.out.println("User was able to JUMP to the section successfully");
 		else
 			System.out.println("User was NOT able to JUMP to a section successfully");
+		
+	}
+	
+	@Test(enabled = true)
+	public void verifyThatUserCanScrollThroughArticles() throws InterruptedException{
+		
+		tp.scrollingThroughArticlesOnASectionFront();
 		
 	}
 	

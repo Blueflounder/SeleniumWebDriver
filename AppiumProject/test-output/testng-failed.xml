@@ -15,9 +15,9 @@
     <classes>
       <class name="com.LATimes.tests.LATimesCallingFunctions">
         <methods>
+          <include name="verifyThatUserCanScrollThroughArticles"/>
           <include name="testSetUp"/>
           <include name="Exit"/>
-          <include name="swipeThroughSectionFronts"/>
         </methods>
       </class> <!-- com.LATimes.tests.LATimesCallingFunctions -->
     </classes>

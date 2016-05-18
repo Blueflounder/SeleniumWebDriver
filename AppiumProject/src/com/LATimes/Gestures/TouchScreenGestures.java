@@ -66,7 +66,7 @@ public class TouchScreenGestures {
 		
 	}
 	
-	public void swipeVertically(AndroidDriver androidDriver){
+	public void scrollDownVertically(AndroidDriver androidDriver){
 		
 		Dimension dimensions = androidDriver.manage().window().getSize();
 		Double screenHeightStart = dimensions.getHeight() * 0.5;
@@ -74,6 +74,19 @@ public class TouchScreenGestures {
 		Double screenHeightEnd = dimensions.getHeight() * 0.01;
 		int scrollEnd = screenHeightEnd.intValue();
 		androidDriver.swipe(0, scrollStart, 0, scrollEnd, 1000);
+		
+	}
+	
+	public void scrollUpVertically(AndroidDriver androidDriver){
+		
+		Dimension dimensions = androidDriver.manage().window().getSize();
+		Double screenHeightStart = dimensions.getHeight() * 0.5;
+		int scrollStart = screenHeightStart.intValue();
+		System.out.println("screenHeightStart is: "+screenHeightStart);
+		Double screenHeightEnd = dimensions.getHeight() * 0.2;
+		int scrollEnd = screenHeightEnd.intValue();
+		System.out.println("screenHeightEndt is: "+screenHeightEnd);
+		androidDriver.swipe(0,scrollEnd, 0, scrollStart, 1000);
 		
 	}
 

@@ -14,7 +14,7 @@ import io.appium.java_client.android.AndroidDriver;
 public abstract class SectionFrontPageObjects {
 
 	AndroidDriver androidDriver;
-	List<WebElement> sectionFrontNames, listOfSectionNames;
+	List<WebElement> sectionFrontNames, listOfSectionNames, Articles;
 	TouchScreenGestures tsg;
 	boolean tabTitlesMatch = true;
 	String tabTitleBeforeSwipe, tabTitleAfterSwipe;
@@ -26,9 +26,10 @@ public abstract class SectionFrontPageObjects {
 		tsg = new TouchScreenGestures();
 	}
 
-	public int getSizeOfSections() {
+	public int getNumberOfSections() {
 
 		System.out.println("Getting number of sections");
+		//Declaring list to save the section names
 		List<String> sectionNamesList = new ArrayList<String>();
 		androidDriver.findElementByAccessibilityId("Open navigation drawer").click();
 		List<WebElement> menuList = androidDriver.findElementsById("lbl_list_item");
@@ -45,7 +46,8 @@ public abstract class SectionFrontPageObjects {
 		for (int i = 0; i < 6; i++) {
 			
 //			sectionNames = androidDriver.findElementsById("nav_sections_text");
-			tsg.swipeVertically(androidDriver);
+			tsg.scrollDownVertically(androidDriver);
+			//Adding section names to list while swiping
 			listOfSectionNames = androidDriver.findElementsById("nav_sections_text");
 
 			for (WebElement sectionName : listOfSectionNames) {
@@ -57,7 +59,6 @@ public abstract class SectionFrontPageObjects {
 			if (lastSectionName.contains("Columnists & Critics"))
 				break;
 		}
-
 		// ArrayList<String> list1 = new ArrayList<String>(new LinkedHashSet<String>(sectionNamesList));
 		
 		//Removing duplicate values from the sectionNamesList
@@ -82,11 +83,48 @@ public abstract class SectionFrontPageObjects {
 
 		return sectionFrontTitle;
 	}
+	
+	public ImmutableList<String> getArticleTitles() throws InterruptedException {
+
+		System.out.println("Getting article titles");
+		Thread.sleep(2000);
+		//Declaring list to save the article titles
+		List<String> listOfArticles = new ArrayList<String>();
+		int lastIndex, numberOfArticles;
+		
+		for (int i = 0; i < 30; i++) {
+			
+			Articles = androidDriver.findElementsById("cell_title");
+
+			for (WebElement article : Articles) {
+				listOfArticles.add(article.getText());
+			}
+			tsg.scrollDownVertically(androidDriver);
+//			lastIndex = Articles.size();
+//			String lastArticleTitle = Articles.get(lastIndex - 1).getText();
+			
+//			if (lastArticleTitle.equals(listOfArticles.get(i)))
+//				System.out.println("User reached to last article");
+//				break;
+		}
+
+		// ArrayList<String> list1 = new ArrayList<String>(new LinkedHashSet<String>(sectionNamesList));
+		
+		//Removing duplicate values from the sectionNamesList
+		ImmutableList<String> finalArticleList = ImmutableSet.copyOf(listOfArticles).asList();
+		System.out.println("Number of articles: " + finalArticleList.size());
+//		for(int j = 0; j < finalArticleList.size(); j++){
+//			System.out.println(finalArticleList.get(j));
+//		}
+//		androidDriver.findElementByAccessibilityId("Navigate up").click();
+		return finalArticleList;
+
+	}
 
 	public boolean swipeThroughSectionFrontToTheRight(String firstSectionName, String lastSectionName)
 			throws InterruptedException {
 
-		noOfSections = getSizeOfSections();
+		noOfSections = getNumberOfSections();
 		System.out.println("No of Sections Received " + noOfSections);
 		System.out.println("Swiping to the END of the sections");
 		Thread.sleep(1000);
@@ -122,7 +160,7 @@ public abstract class SectionFrontPageObjects {
 		return tabTitlesMatch;
 	}
 
-	public boolean verifyThatUserCanJumpToASection(String sectionNameToBeJumpedTo, int noOfSections) throws InterruptedException {
+	public boolean jumpToASection(String sectionNameToBeJumpedTo, int noOfSections) throws InterruptedException {
 		
 		boolean userIsJumpedToSection = false;
 		String sectionTitle;
@@ -150,6 +188,16 @@ public abstract class SectionFrontPageObjects {
 		return userIsJumpedToSection;
 	}
 
+	public boolean scrollingThroughArticlesOnASectionFront() throws InterruptedException{
+		
+//		String firstArticleTitle, lastArticleTitle;
+		
+		getArticleTitles();
+		tsg.scrollUpVertically(androidDriver);
+		
+		return true;
+	}
+	
 	public void verifyThatUserCanSaveArticlesFromSectionFront() {
 		int articleIndex = 0;
 
